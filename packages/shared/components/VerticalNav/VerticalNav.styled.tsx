@@ -9,6 +9,8 @@ export const NavUl = styled.ul`
   margin: 0;
   padding: 0;
   padding: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -17,5 +19,8 @@ export const NavUl = styled.ul`
 export const NavLi = styled.li`
   a {
     color: inherit;
+    &.active {
+      color: ${({ theme }) => theme.navActive}
+    }
   }
 `;

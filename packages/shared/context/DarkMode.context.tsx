@@ -8,14 +8,14 @@ interface DarkModeContextInterface {
 }
 
 const initialCotext: DarkModeContextInterface = {
-  theme: 'light',
+  theme: 'dark',
   themeToggler: () => console.log('Initiating DarkMode context...')
 };
 
 export const DarkModeContext = createContext<DarkModeContextInterface>(initialCotext);
 
 export const DarkModeContextProvider = ({ children }: { children: JSX.Element }) => {
-  const [theme, setTheme] = useState<Mode>('light');
+  const [theme, setTheme] = useState<Mode>('dark');
 
   const setMode = (mode: Mode) => {
     window.localStorage.setItem('theme', mode);

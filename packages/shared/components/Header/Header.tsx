@@ -1,7 +1,9 @@
-// import { useDarkMode } from 'shared/hooks/useDarkMode';
+import React from 'react';
 import { useContext } from "react";
 import { DarkModeContext } from 'shared/context/DarkMode.context'
 import { ToggleSwitch } from 'shared/components/ToggleSwitch';
+import { BrandLogo } from '../../assets/BrandLogo';
+import { lightTheme, darkTheme } from '../../styles/Themes';
 import * as Styled from './Header.styled';
 
 export const Header = () => {
@@ -9,9 +11,9 @@ export const Header = () => {
 
   return (
     <Styled.Header>
-      <Styled.ServiceName>
-        MaxSpeed Insights
-      </Styled.ServiceName>
+      <Styled.LogoContainer>
+        <BrandLogo textColor={theme === 'dark' ? darkTheme.text : lightTheme.text } />
+      </Styled.LogoContainer>
       <ToggleSwitch
         label="DarkMode"
         onClick={themeToggler}

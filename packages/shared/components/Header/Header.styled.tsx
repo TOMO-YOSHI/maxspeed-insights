@@ -13,4 +13,8 @@ export const Header = styled.header`
   ${CommonShadow}
 `;
 
+export const LogoContainer = styled.div`
+  width: 200px;
+`;
+
 export const ServiceName = styled.p``;
