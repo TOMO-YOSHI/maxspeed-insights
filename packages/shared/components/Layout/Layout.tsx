@@ -13,7 +13,9 @@ export const Layout = ({ children }: LayoutProps) => {
     <Styled.Layout>
       <Header />
       <Styled.CotentsGrid>
-        <VerticalNav />
+        <Styled.VerticalNavWrapper>
+          <VerticalNav />
+        </Styled.VerticalNavWrapper>
         <Styled.Main>
           {children}
         </Styled.Main>

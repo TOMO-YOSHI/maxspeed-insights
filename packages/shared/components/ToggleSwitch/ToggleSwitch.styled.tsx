@@ -58,7 +58,7 @@ export const Span = styled.span`
 
 export const Text = styled.p`
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   cursor: pointer;
   /* display: inline-block;
   margin: 0;

@@ -1,4 +1,5 @@
 import React from 'react';
+
 export interface BrandLogo {
   textColor?: string;
   altText?: string;

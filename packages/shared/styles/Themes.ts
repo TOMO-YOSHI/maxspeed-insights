@@ -11,5 +11,4 @@ export const darkTheme = {
   toggleBorder: '#6B8096',
   background: '#999',
   navActive: '#FFD700'
-
 }

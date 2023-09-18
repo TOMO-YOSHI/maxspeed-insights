@@ -8,8 +8,19 @@ export const Layout = styled.div`
 
 export const CotentsGrid = styled.div`
   ${CommonMargin}
-  display: grid;
-  grid-template-columns: 160px 1fr;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+`;
+
+export const VerticalNavWrapper = styled.div`
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
 `;
 
 export const Main = styled.main`
