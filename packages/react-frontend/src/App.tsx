@@ -37,13 +37,14 @@ function App() {
         <Layout>
           <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="projects" element={<Projects projects={projects} />}>
+          <Route path="projects" element={<Projects projects={projects} />} />
+          {/* <Route path="projects" element={<Projects projects={projects} />}>
               {
                 projects.map(project => (
                   <Route path="profile" element={<ProjectDashboard title={project.title} />} />
                 ))
               }
-            </Route>
+            </Route> */}
             <Route path="diagnosis" element={<Diagnosis />} />
             <Route path="records" element={<Records />} />
             <Route path="settings" element={<Settings />}>

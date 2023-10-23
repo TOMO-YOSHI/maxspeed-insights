@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet } from "react-router-dom";
 import * as Styled from './Projects.styled';
 
 export interface Project {
   id: string;
   title: string;
+  url: string;
+  paths: string[]
 }
 
 export interface ProjectsProps {
@@ -12,6 +14,13 @@ export interface ProjectsProps {
 }
 
 export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
+  const [ selectedProject, setSelectedProject ] = useState<string>('newProject');
+
+  const selectHandler = (event: React.ChangeEvent<HTMLSelectElement> ) => {
+    event.preventDefault();
+    setSelectedProject(event.target.value);
+  }
+
   return (
     <>
       <h1>Projects</h1>
@@ -26,7 +35,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       </nav> */}
       {/* <label htmlFor="selectProject">Select your project: </label> */}
       <Styled.ActionContainer>
-        <select id="selectProject">
+        <select id="selectProject" onChange={selectHandler}>
           <option value="newProject" selected={true}>
             New Project
           </option>
