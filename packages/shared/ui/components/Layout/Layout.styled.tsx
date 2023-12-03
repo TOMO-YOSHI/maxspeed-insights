@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { headerHeight } from '../Header/Header.styled';
 import { footerHeight } from '../Footer/Footer.styled';
-import { CommonMargin } from '../../styles/Common.styled';
+import { CommonMargin } from '../../../styles/Common.styled';
 
 export const Layout = styled.div`
 `;

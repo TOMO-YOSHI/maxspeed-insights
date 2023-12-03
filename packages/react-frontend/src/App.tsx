@@ -4,32 +4,22 @@ import { DarkModeContext } from 'shared/context/DarkMode.context';
 import { GlobalStyles } from "shared/styles/Globalstyles";
 import { lightTheme, darkTheme } from "shared/styles/Themes";
 import { Routes, Route } from "react-router-dom";
-import { Layout } from 'shared/components/Layout';
+import { Layout } from 'shared/ui/components/Layout';
 import { Home } from './pages/Home';
 import { Projects } from './pages/Projects';
 import { Diagnosis } from './pages/Diagnosis';
 import { Records } from './pages/Records';
 import { Settings } from './pages/Settings';
-import { ProjectDashboard } from 'shared/components/ProjectDashboard';
+import { useProjectsStore } from './store/projectsStore';
+import { useShallow } from "zustand/react/shallow";
+// import { ProjectDashboard } from 'shared/components/ProjectDashboard';
 
 function App() {
   const { theme } = useContext(DarkModeContext);
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
-
-  const projects = [
-    {
-      id: "1",
-      title: "Cnadian Train Vacation",
-      url: "https://canadiantrainvacations.com/",
-      paths: ["/", "trips", "blog"]
-    },
-    {
-      id: "2",
-      title: "Fresh Tracks Canada",
-      url: "https://freshtrackscanada.com/",
-      paths: ["/", "about-us", "reviews"]
-    }
-  ]
+  const [ projects ] = useProjectsStore(
+    useShallow((state) => [ state.projects ])
+  )
 
   return (
     <ThemeProvider theme={themeMode}>

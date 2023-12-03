@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Outlet } from "react-router-dom";
+// import { Outlet } from "react-router-dom";
+import { Button } from 'shared/ui/components/Button';
 import * as Styled from './Projects.styled';
 
 export interface Project {
@@ -13,30 +14,27 @@ export interface ProjectsProps {
   projects: Project[];
 }
 
+const initState: Project = {
+  id: "",
+  title: "",
+  url: "",
+  paths: []
+};
+
 export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
-  const [ selectedProject, setSelectedProject ] = useState<string>('newProject');
+  const [ selectedProject, setSelectedProject ] = useState<Project>(initState);
 
   const selectHandler = (event: React.ChangeEvent<HTMLSelectElement> ) => {
     event.preventDefault();
-    setSelectedProject(event.target.value);
+    setSelectedProject(event.target.value ? projects.filter((pro) => pro.id === event.target.value)[0] : initState);
   }
 
   return (
     <>
       <h1>Projects</h1>
-      {/* <nav>
-        <ul>
-          {
-            projects.map((project) => (
-              <li>{project.title}</li>
-            ))
-          }
-        </ul>
-      </nav> */}
-      {/* <label htmlFor="selectProject">Select your project: </label> */}
       <Styled.ActionContainer>
         <select id="selectProject" onChange={selectHandler}>
-          <option value="newProject" selected={true}>
+          <option value={""} selected={true}>
             New Project
           </option>
           {
@@ -46,7 +44,50 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           }
         </select>
       </Styled.ActionContainer>
-      <Outlet />
+      <div>
+        <Styled.Form>
+          <Styled.Fieldset>
+            <Styled.Lable htmlFor="title">Title:&nbsp;
+              <Styled.Input
+                type="text"
+                id="title"
+                name="title"
+                value={selectedProject.title}
+                {...(selectedProject.title ? {disabled: true} : {})}
+              />
+            </Styled.Lable>
+            <Styled.Lable htmlFor="url">URL:&nbsp;
+              <Styled.Input
+                type="text"
+                id="url"
+                name="url"
+                value={selectedProject.url}
+                {...(selectedProject.url ? {disabled: true} : {})}
+              />
+            </Styled.Lable>
+          </Styled.Fieldset>
+          <Styled.ButtonsContainer>
+            {
+              !selectedProject.title &&
+              <Button
+                onClick={(ev) => console.log(ev)}
+                disabled={true}
+              >
+                Create New Project
+              </Button>
+            }
+            {
+              !!selectedProject.title &&
+              <Button
+                onClick={(ev) => console.log(ev)}
+              >
+                Delete Existing Project
+              </Button>
+            }
+          </Styled.ButtonsContainer>
+        </Styled.Form>
+      </div>
+      {/* <Outlet /> */}
     </>
   )
 }
