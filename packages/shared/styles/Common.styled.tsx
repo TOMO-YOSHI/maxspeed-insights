@@ -1,18 +1,19 @@
 import { css } from 'styled-components';
+import * as consts from './consts';
 
 export const CommonMargin = css`
   max-width: 1024px;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  @media (min-width: 768px) {
-    margin-left: 2rem;
-    margin-right: 2rem;
+  margin-left: ${consts.spacing.md};
+  margin-right: ${consts.spacing.md};
+  @media (min-width: ${consts.breakpoints.md}) {
+    margin-left: ${consts.spacing.xl};
+    margin-right: ${consts.spacing.xl};
   }
-  @media (min-width: 1024px) {
-    margin-left: 3rem;
-    margin-right: 3rem;
+  @media (min-width: ${consts.breakpoints.lg}) {
+    margin-left: ${consts.spacing.xxl};
+    margin-right: ${consts.spacing.xxl};
   }
-  @media (min-width: 1280px) {
+  @media (min-width: ${consts.breakpoints.xl}) {
     margin-left: auto;
     margin-right: auto;
   }

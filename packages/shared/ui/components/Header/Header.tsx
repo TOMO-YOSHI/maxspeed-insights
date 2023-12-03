@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import { DarkModeContext } from 'shared/context/DarkMode.context'
-import { ToggleSwitch } from 'shared/components/ToggleSwitch';
-import { BrandLogo } from '../../assets/BrandLogo';
-import { CharactorLogo } from '../../assets/CharactorLogo';
-import { lightTheme, darkTheme } from '../../styles/Themes';
+import { ToggleSwitch } from 'shared/ui/components/ToggleSwitch';
+import { BrandLogo } from 'shared/assets/BrandLogo';
+import { CharactorLogo } from 'shared/assets/CharactorLogo';
+import { lightTheme, darkTheme } from 'shared/styles/Themes';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faWindowClose } from '@fortawesome/free-solid-svg-icons';

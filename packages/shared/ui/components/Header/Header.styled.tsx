@@ -1,5 +1,5 @@
 import { styled, keyframes } from 'styled-components';
-import { CommonShadow } from '../../styles/Common.styled';
+import { CommonShadow } from 'shared/styles/Common.styled';
 
 export const headerHeight = '4rem';
 
