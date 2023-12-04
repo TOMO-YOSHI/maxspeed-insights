@@ -2,6 +2,7 @@
   "name": "react-frontend",
   "private": true,
   "version": "0.0.0",
+  "productName": "MaxSpeed Insights",
   "main": "./out/main/main.js",
   "scripts": {
     "dev": "electron-vite dev -w",
